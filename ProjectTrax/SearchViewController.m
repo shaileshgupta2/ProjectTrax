@@ -17,6 +17,7 @@
     NSArray *searchAttributes;
 
     NSString *searchSelected;
+    NSString *check;
     BOOL isFiltered ;
     SINavigationMenuView *menu;
 }
