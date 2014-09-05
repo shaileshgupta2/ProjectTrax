@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98FAB4CB19B9E06400491924 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FAB4CA19B9E06400491924 /* jsonParser.m */; };
 		B04A7A1919B832A1006D8BA4 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B04A7A1519B832A1006D8BA4 /* StatusCell.m */; };
 		B04A7A1A19B832A1006D8BA4 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04A7A1619B832A1006D8BA4 /* StatusCell.xib */; };
 		B04A7A1B19B832A1006D8BA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04A7A1819B832A1006D8BA4 /* DetailViewController.m */; };
@@ -118,6 +119,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98FAB4C919B9E06400491924 /* jsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonParser.h; sourceTree = "<group>"; };
+		98FAB4CA19B9E06400491924 /* jsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jsonParser.m; sourceTree = "<group>"; };
 		B04A7A1419B832A1006D8BA4 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
 		B04A7A1519B832A1006D8BA4 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
 		B04A7A1619B832A1006D8BA4 /* StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 				B04FC2B419B465D000B2F2A9 /* ProjectDataSource.h */,
 				B04FC2B619B465E000B2F2A9 /* ProjectModel.m */,
 				B04FC2B719B465E000B2F2A9 /* ProjectModel.h */,
+				98FAB4C919B9E06400491924 /* jsonParser.h */,
+				98FAB4CA19B9E06400491924 /* jsonParser.m */,
 			);
 			name = ProjectData;
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 				B04A7A1919B832A1006D8BA4 /* StatusCell.m in Sources */,
 				B04FC27E19B4405800B2F2A9 /* LoginViewController.m in Sources */,
 				B04FC2C119B4660600B2F2A9 /* FavoriteCell.m in Sources */,
+				98FAB4CB19B9E06400491924 /* jsonParser.m in Sources */,
 				B04FC2E419B59E6000B2F2A9 /* SearchViewController.m in Sources */,
 				B04FC27819B4405700B2F2A9 /* AppDelegate.m in Sources */,
 				B04FC2AA19B4411000B2F2A9 /* SWCellScrollView.m in Sources */,
