@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SINavigationMenuView.h"
 
-@interface ViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 @end
