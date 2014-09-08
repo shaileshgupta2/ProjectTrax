@@ -24,6 +24,8 @@
     
     
     NSMutableArray *favouriteProjects;
+    NSMutableArray *favouriteProjects2;
+
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *ProjectTable;

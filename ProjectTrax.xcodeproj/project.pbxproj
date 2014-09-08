@@ -394,17 +394,17 @@
 		B04FC26D19B4405700B2F2A9 /* ProjectTrax */ = {
 			isa = PBXGroup;
 			children = (
-				B04A7A1F19B8453A006D8BA4 /* icons */,
-				B04A7A1119B73594006D8BA4 /* NavigationMenu */,
-				B04FC2AF19B4412400B2F2A9 /* SWTableViewCell */,
-				B04FC2D819B4890200B2F2A9 /* Controllers */,
-				B04FC2C219B4661400B2F2A9 /* CustomCell */,
-				B04FC2D919B4891700B2F2A9 /* ProjectData */,
 				B04FC27619B4405700B2F2A9 /* AppDelegate.h */,
 				B04FC27719B4405700B2F2A9 /* AppDelegate.m */,
-				B04FC27919B4405700B2F2A9 /* Main.storyboard */,
+				B04FC2D819B4890200B2F2A9 /* Controllers */,
+				B04FC2C219B4661400B2F2A9 /* CustomCell */,
+				B04A7A1F19B8453A006D8BA4 /* icons */,
 				B04FC27F19B4405800B2F2A9 /* Images.xcassets */,
+				B04FC27919B4405700B2F2A9 /* Main.storyboard */,
+				B04A7A1119B73594006D8BA4 /* NavigationMenu */,
+				B04FC2D919B4891700B2F2A9 /* ProjectData */,
 				B04FC26E19B4405700B2F2A9 /* Supporting Files */,
+				B04FC2AF19B4412400B2F2A9 /* SWTableViewCell */,
 			);
 			path = ProjectTrax;
 			sourceTree = "<group>";
