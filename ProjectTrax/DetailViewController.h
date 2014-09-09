@@ -14,9 +14,10 @@
 -(void)start;
 
 - (IBAction)NavigateButtonPressed:(id)sender;
-- (IBAction)StarButtonPressed:(id)sender;
+- (IBAction)favoriteButtonPressed:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UILabel *ProjectTitleLabel;
+@property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
 
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *SegmentControl;

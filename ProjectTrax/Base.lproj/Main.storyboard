@@ -113,16 +113,13 @@
                                             <segue destination="Mll-be-rnI" kind="push" id="KbN-on-c2K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-4L-oFy">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-4L-oFy">
                                         <rect key="frame" x="292" y="22" width="28" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <state key="normal" backgroundImage="favourite-blue-50x50.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="StarButtonPressed:" destination="8Om-bB-liV" eventType="touchUpInside" id="z4T-2l-GLh"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kZu-r1-Rzp">
                                         <rect key="frame" x="0.0" y="109" width="320" height="459"/>
@@ -483,12 +480,13 @@
                         <outlet property="SubCategoryLabel" destination="th8-iH-boK" id="PaE-JP-gNS"/>
                         <outlet property="TextViewOutLet" destination="MOe-AP-IPW" id="ex2-mQ-FTl"/>
                         <outlet property="WaterLineLabel" destination="pVM-6a-cHc" id="y2B-fL-rZq"/>
+                        <outlet property="favoriteButton" destination="ppm-4L-oFy" id="kVJ-3G-1Nx"/>
                         <outlet property="thirdView" destination="IeT-bI-a09" id="8pu-WD-nFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qxc-6b-xdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623" y="-580"/>
+            <point key="canvasLocation" x="1619" y="-592"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pe2-fe-lOL">

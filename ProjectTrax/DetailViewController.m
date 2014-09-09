@@ -15,6 +15,7 @@
 
 @implementation DetailViewController
 
+@synthesize favoriteButton;
 @synthesize ProjectTitleLabel;
 @synthesize SegmentControl;
 @synthesize LastUpdateLable;
@@ -41,6 +42,15 @@
 
 -(void)start
 {
+    bool favoritebuttonstatus = false;
+    
+    if (favoritebuttonstatus == true) {
+         [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favourite-blue-50x50.png"] forState:UIControlStateNormal];
+    }
+    else
+    {
+     [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favourite-grey-50x50.png"] forState:UIControlStateNormal];
+    }
     self.navigationController.navigationBarHidden =YES;
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
@@ -452,6 +462,7 @@
 - (IBAction)NavigateButtonPressed:(id)sender {
 }
 
-- (IBAction)StarButtonPressed:(id)sender {
+- (IBAction)favoriteButtonPressed:(id)sender {
+   
 }
 @end
