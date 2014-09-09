@@ -15,6 +15,7 @@
 
 - (IBAction)NavigateButtonPressed:(id)sender;
 - (IBAction)favoriteButtonPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *navigationButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *ProjectTitleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *favoriteButton;

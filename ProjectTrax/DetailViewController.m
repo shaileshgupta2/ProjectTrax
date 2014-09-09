@@ -15,6 +15,7 @@
 
 @implementation DetailViewController
 
+@synthesize navigationButton;
 @synthesize favoriteButton;
 @synthesize ProjectTitleLabel;
 @synthesize SegmentControl;
@@ -37,7 +38,9 @@
 @synthesize FifthView;
 
 
-
+-(void) popBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 -(void)start
@@ -51,6 +54,8 @@
     {
      [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favourite-grey-50x50.png"] forState:UIControlStateNormal];
     }
+    
+    //[navigationButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
     self.navigationController.navigationBarHidden =YES;
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;

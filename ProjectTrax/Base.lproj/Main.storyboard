@@ -481,6 +481,7 @@
                         <outlet property="TextViewOutLet" destination="MOe-AP-IPW" id="ex2-mQ-FTl"/>
                         <outlet property="WaterLineLabel" destination="pVM-6a-cHc" id="y2B-fL-rZq"/>
                         <outlet property="favoriteButton" destination="ppm-4L-oFy" id="kVJ-3G-1Nx"/>
+                        <outlet property="navigationButton" destination="TZo-0a-bO9" id="88l-uX-GTB"/>
                         <outlet property="thirdView" destination="IeT-bI-a09" id="8pu-WD-nFe"/>
                     </connections>
                 </viewController>
@@ -900,8 +901,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="bTU-80-f6a"/>
         <segue reference="BMw-dK-z6j"/>
         <segue reference="KbN-on-c2K"/>
-        <segue reference="bTU-80-f6a"/>
     </inferredMetricsTieBreakers>
 </document>
