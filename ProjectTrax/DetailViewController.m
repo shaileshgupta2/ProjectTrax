@@ -56,8 +56,9 @@
     }
     
     //[navigationButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
+    
     self.navigationController.navigationBarHidden =YES;
-    self.navigationItem.leftBarButtonItem = nil;
+   self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
     
     LastUpdateLable.layer.borderWidth = 2.0f;
@@ -401,9 +402,28 @@
 {
     [super viewDidLoad];
     
-    [self start];
-}
+  //  [self start];
+    
 
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(!(self.navigationController.navigationBarHidden)) //(not hidden)
+    {
+        self.navigationController.navigationBarHidden =YES;
+    }
+    else //yes(hidden)
+    {
+        self.navigationController.navigationBarHidden = YES	;
+        
+    }
+
+   
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+[self start];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -465,6 +485,8 @@
 }
 
 - (IBAction)NavigateButtonPressed:(id)sender {
+     [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.navigationBarHidden=YES;
 }
 
 - (IBAction)favoriteButtonPressed:(id)sender {

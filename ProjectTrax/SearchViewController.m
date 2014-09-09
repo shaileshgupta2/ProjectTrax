@@ -37,22 +37,20 @@
     }
     return self;
 }
-
-- (void)viewDidLoad
+-(void) viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
-
-   searchCriteria =  @[@"Project Name", @"PM", @"Sponsor"];
+    
+    searchCriteria =  @[@"Project Name", @"PM", @"Sponsor"];
     searchAttributes = @[@"projName",@"projMan",@"projNo"];
     // _currentSearchProjects = [[NSMutableArray alloc] init];
     searchResults =[[NSMutableArray alloc]init];
-   
+    
     
     UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 20.0f, 20.0f)];
-    UIImage *backImage = [[UIImage imageNamed:@"back_btn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12.0f, 0, 12.0f)];
+    UIImage *backImage = [[UIImage imageNamed:@"Arrow-RED-40x40.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12.0f, 0, 12.0f)];
     [backButton setBackgroundImage:backImage  forState:UIControlStateNormal];
-   // [backButton setTitle:@"Back" forState:UIControlStateNormal];
+    // [backButton setTitle:@"Back" forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = backButtonItem;
@@ -70,6 +68,12 @@
         self.navigationItem.titleView = menu;
     }
     
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
    	// Do any additional setup after loading the view, typically from a nib.
 }
