@@ -47,7 +47,7 @@
 
 
 
--(void)loadData;
+-(void)loadJson;
 
 
 @end

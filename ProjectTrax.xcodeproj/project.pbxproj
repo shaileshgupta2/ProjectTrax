@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		987416E719BF2F22002512C9 /* json_structure.json in Resources */ = {isa = PBXBuildFile; fileRef = 987416E619BF2F22002512C9 /* json_structure.json */; };
 		98FAB4CB19B9E06400491924 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FAB4CA19B9E06400491924 /* jsonParser.m */; };
 		B04A7A1919B832A1006D8BA4 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B04A7A1519B832A1006D8BA4 /* StatusCell.m */; };
 		B04A7A1A19B832A1006D8BA4 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04A7A1619B832A1006D8BA4 /* StatusCell.xib */; };
@@ -127,6 +128,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		987416E619BF2F22002512C9 /* json_structure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = json_structure.json; sourceTree = "<group>"; };
 		98FAB4C919B9E06400491924 /* jsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonParser.h; sourceTree = "<group>"; };
 		98FAB4CA19B9E06400491924 /* jsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jsonParser.m; sourceTree = "<group>"; };
 		B04A7A1419B832A1006D8BA4 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		B04FC26D19B4405700B2F2A9 /* ProjectTrax */ = {
 			isa = PBXGroup;
 			children = (
+				987416E619BF2F22002512C9 /* json_structure.json */,
 				B04FC27619B4405700B2F2A9 /* AppDelegate.h */,
 				B04FC27719B4405700B2F2A9 /* AppDelegate.m */,
 				B04FC2D819B4890200B2F2A9 /* Controllers */,
@@ -652,6 +655,7 @@
 				B04A7A8519B845CF006D8BA4 /* nutshell-white-30x30.png in Resources */,
 				B04A7A6819B845CF006D8BA4 /* PD-30x30.png in Resources */,
 				B04A7A6719B845CF006D8BA4 /* stakeholder-30x30.png in Resources */,
+				987416E719BF2F22002512C9 /* json_structure.json in Resources */,
 				B04A7A6519B845CF006D8BA4 /* Supplier-Group-30x30.png in Resources */,
 				B04A7A6319B845CF006D8BA4 /* SOW-30x30.png in Resources */,
 				B04A7A6419B845CF006D8BA4 /* purchase-order-30x30.png in Resources */,
