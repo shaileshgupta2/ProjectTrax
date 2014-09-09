@@ -41,6 +41,10 @@
 
 -(void)start
 {
+    self.navigationController.navigationBarHidden =YES;
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+    
     LastUpdateLable.layer.borderWidth = 2.0f;
     LastUpdateLable.layer.borderColor =[[UIColor lightGrayColor]CGColor];
     FirstView.hidden = NO;
