@@ -54,9 +54,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="-14"/>
+            <point key="canvasLocation" x="-314" y="-14"/>
         </scene>
-        <!--Detail View Controller - Item-->
+        <!--Detail View Controller-->
         <scene sceneID="VH2-xG-8n5">
             <objects>
                 <viewController id="8Om-bB-liV" customClass="DetailViewController" sceneMemberID="viewController">
@@ -109,6 +109,9 @@
                                         <state key="normal" title="&lt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Mll-be-rnI" kind="push" id="KbN-on-c2K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppm-4L-oFy">
                                         <rect key="frame" x="292" y="22" width="28" height="30"/>
@@ -453,8 +456,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="tbg-w4-tzx"/>
-                    <navigationItem key="navigationItem" id="vmj-9k-AtI"/>
+                    <navigationItem key="navigationItem" id="IZt-cW-1SI"/>
+                    <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <outlet property="FifthView" destination="PFE-BW-XJn" id="Ih0-V9-OU0"/>
                         <outlet property="FirstView" destination="wZX-Jl-HvP" id="EeX-hI-6id"/>
@@ -504,7 +507,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="WD2-rX-H1J">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -512,13 +515,16 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nnF-hu-07j">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nnF-hu-07j">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nnF-hu-07j" id="KMP-5C-Q6u">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8Om-bB-liV" kind="push" identifier="DetailSegue1" id="bTU-80-f6a"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -535,7 +541,6 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="rnB-Ee-7Bd" id="lBt-Mi-n5p"/>
                         <outlet property="searchbar" destination="WD2-rX-H1J" id="uTi-z2-C3h"/>
-                        <segue destination="8Om-bB-liV" kind="push" identifier="DetailSegue" id="Lmw-cv-K2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jB6-sc-eD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -601,7 +606,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" verticalCompressionResistancePriority="751" selectionStyle="default" indentationWidth="10" reuseIdentifier="Projcell" rowHeight="90" id="kRG-2h-4Hg" customClass="ProjectCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="90"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kRG-2h-4Hg" id="taf-3S-s2v">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
@@ -696,6 +701,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Portfolio" image="nutshell-blue-30x30.png" id="g0x-IT-iuj"/>
+                    <navigationItem key="navigationItem" id="vOB-dM-deY"/>
                     <connections>
                         <outlet property="ProjectTable" destination="q6C-oj-F8V" id="Wmu-YG-PmQ"/>
                         <segue destination="8Om-bB-liV" kind="push" identifier="DetailSegue" id="mqT-N7-abr"/>
@@ -723,7 +729,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMf-Rb-ocE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="-14"/>
+            <point key="canvasLocation" x="89" y="-20"/>
         </scene>
         <!--Favorites View Controller - Favourites-->
         <scene sceneID="Per-6G-ikc">
@@ -743,7 +749,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" verticalCompressionResistancePriority="751" selectionStyle="default" indentationWidth="10" reuseIdentifier="Favcell" rowHeight="90" id="Nqi-zg-1Gt" customClass="ProjectCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="90"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nqi-zg-1Gt" id="FaI-SW-Etb">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
@@ -863,7 +869,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4br-ah-nED" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="-4"/>
+            <point key="canvasLocation" x="-686" y="-14"/>
         </scene>
     </scenes>
     <resources>
@@ -896,7 +902,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BMw-dK-z6j"/>
-        <segue reference="Lmw-cv-K2g"/>
+        <segue reference="bTU-80-f6a"/>
+        <segue reference="z4F-A6-VTa"/>
+        <segue reference="KbN-on-c2K"/>
     </inferredMetricsTieBreakers>
 </document>
