@@ -71,6 +71,14 @@
 		B04A7A9519B845CF006D8BA4 /* search-50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7A5919B845CF006D8BA4 /* search-50x50.png */; };
 		B04A7A9619B845CF006D8BA4 /* signin-button-450x60.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7A5A19B845CF006D8BA4 /* signin-button-450x60.png */; };
 		B04A7A9719B845CF006D8BA4 /* splash640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7A5B19B845CF006D8BA4 /* splash640x1136.png */; };
+		B04A7AB219BEFBCB006D8BA4 /* A-to-Z-50x50[1].png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AAA19BEFBCB006D8BA4 /* A-to-Z-50x50[1].png */; };
+		B04A7AB319BEFBCB006D8BA4 /* add-to-fav.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AAB19BEFBCB006D8BA4 /* add-to-fav.png */; };
+		B04A7AB419BEFBCB006D8BA4 /* fav-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AAC19BEFBCB006D8BA4 /* fav-highlight.png */; };
+		B04A7AB519BEFBCB006D8BA4 /* Portfolio-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AAD19BEFBCB006D8BA4 /* Portfolio-blue.png */; };
+		B04A7AB619BEFBCB006D8BA4 /* Portfolio-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AAE19BEFBCB006D8BA4 /* Portfolio-grey.png */; };
+		B04A7AB719BEFBCB006D8BA4 /* POrtfolio-V4.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AAF19BEFBCB006D8BA4 /* POrtfolio-V4.png */; };
+		B04A7AB819BEFBCB006D8BA4 /* remove-fav.png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AB019BEFBCB006D8BA4 /* remove-fav.png */; };
+		B04A7AB919BEFBCB006D8BA4 /* Z-to-A-50x50[1].png in Resources */ = {isa = PBXBuildFile; fileRef = B04A7AB119BEFBCB006D8BA4 /* Z-to-A-50x50[1].png */; };
 		B04FC26819B4405700B2F2A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04FC26719B4405700B2F2A9 /* Foundation.framework */; };
 		B04FC26A19B4405700B2F2A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04FC26919B4405700B2F2A9 /* CoreGraphics.framework */; };
 		B04FC26C19B4405700B2F2A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04FC26B19B4405700B2F2A9 /* UIKit.framework */; };
@@ -186,6 +194,14 @@
 		B04A7A5919B845CF006D8BA4 /* search-50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-50x50.png"; sourceTree = "<group>"; };
 		B04A7A5A19B845CF006D8BA4 /* signin-button-450x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signin-button-450x60.png"; sourceTree = "<group>"; };
 		B04A7A5B19B845CF006D8BA4 /* splash640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash640x1136.png; sourceTree = "<group>"; };
+		B04A7AAA19BEFBCB006D8BA4 /* A-to-Z-50x50[1].png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-to-Z-50x50[1].png"; sourceTree = "<group>"; };
+		B04A7AAB19BEFBCB006D8BA4 /* add-to-fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-to-fav.png"; sourceTree = "<group>"; };
+		B04A7AAC19BEFBCB006D8BA4 /* fav-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fav-highlight.png"; sourceTree = "<group>"; };
+		B04A7AAD19BEFBCB006D8BA4 /* Portfolio-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portfolio-blue.png"; sourceTree = "<group>"; };
+		B04A7AAE19BEFBCB006D8BA4 /* Portfolio-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Portfolio-grey.png"; sourceTree = "<group>"; };
+		B04A7AAF19BEFBCB006D8BA4 /* POrtfolio-V4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "POrtfolio-V4.png"; sourceTree = "<group>"; };
+		B04A7AB019BEFBCB006D8BA4 /* remove-fav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remove-fav.png"; sourceTree = "<group>"; };
+		B04A7AB119BEFBCB006D8BA4 /* Z-to-A-50x50[1].png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Z-to-A-50x50[1].png"; sourceTree = "<group>"; };
 		B04FC26419B4405700B2F2A9 /* ProjectTrax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectTrax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04FC26719B4405700B2F2A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B04FC26919B4405700B2F2A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -300,6 +316,14 @@
 				B04A7A2019B845CF006D8BA4 /* Remove-50x50.png */,
 				B04A7A2119B845CF006D8BA4 /* risk-low-level.png */,
 				B04A7A2219B845CF006D8BA4 /* risk-medium-level-30x30.png */,
+				B04A7AAA19BEFBCB006D8BA4 /* A-to-Z-50x50[1].png */,
+				B04A7AAB19BEFBCB006D8BA4 /* add-to-fav.png */,
+				B04A7AAC19BEFBCB006D8BA4 /* fav-highlight.png */,
+				B04A7AAD19BEFBCB006D8BA4 /* Portfolio-blue.png */,
+				B04A7AAE19BEFBCB006D8BA4 /* Portfolio-grey.png */,
+				B04A7AAF19BEFBCB006D8BA4 /* POrtfolio-V4.png */,
+				B04A7AB019BEFBCB006D8BA4 /* remove-fav.png */,
+				B04A7AB119BEFBCB006D8BA4 /* Z-to-A-50x50[1].png */,
 				B04A7A2319B845CF006D8BA4 /* high-level-risk-30x30.png */,
 				B04A7A2419B845CF006D8BA4 /* issue-low-level.png */,
 				B04A7A2519B845CF006D8BA4 /* issue-medium-level-30x30.png */,
@@ -581,7 +605,11 @@
 			files = (
 				B04A7A9119B845CF006D8BA4 /* On-Click-A-to-Z-50x50.png in Resources */,
 				B04A7A9019B845CF006D8BA4 /* A-to-Z-50x50.png in Resources */,
+				B04A7AB819BEFBCB006D8BA4 /* remove-fav.png in Resources */,
+				B04A7AB619BEFBCB006D8BA4 /* Portfolio-grey.png in Resources */,
+				B04A7AB319BEFBCB006D8BA4 /* add-to-fav.png in Resources */,
 				B04A7A6619B845CF006D8BA4 /* oversight-PM-30x30.png in Resources */,
+				B04A7AB219BEFBCB006D8BA4 /* A-to-Z-50x50[1].png in Resources */,
 				B04A7A8D19B845CF006D8BA4 /* PM-PL-Filter-50x50.png in Resources */,
 				B04A7A7E19B845CF006D8BA4 /* issues-white-30x30.png in Resources */,
 				B04A7A7319B845CF006D8BA4 /* Project-Stage-Circle-66x66.png in Resources */,
@@ -589,6 +617,7 @@
 				B04A7A7219B845CF006D8BA4 /* category-30x30.png in Resources */,
 				B04A7A8919B845CF006D8BA4 /* Yellow-Stable-40x40.png in Resources */,
 				B04FC28019B4405800B2F2A9 /* Images.xcassets in Resources */,
+				B04A7AB919BEFBCB006D8BA4 /* Z-to-A-50x50[1].png in Resources */,
 				B04A7A6019B845CF006D8BA4 /* issue-low-level.png in Resources */,
 				B04A7A6A19B845CF006D8BA4 /* startdate-30x30.png in Resources */,
 				B04A7A6119B845CF006D8BA4 /* issue-medium-level-30x30.png in Resources */,
@@ -598,8 +627,10 @@
 				B04A7A7619B845CF006D8BA4 /* risks-white-30x30.png in Resources */,
 				B04A7A6219B845CF006D8BA4 /* high-level-issue.png in Resources */,
 				B04A7A7B19B845CF006D8BA4 /* Active-portfolio-212x100 copy.PNG in Resources */,
+				B04A7AB719BEFBCB006D8BA4 /* POrtfolio-V4.png in Resources */,
 				B04A7A8719B845CF006D8BA4 /* check-50x50.png in Resources */,
 				B04A7A6919B845CF006D8BA4 /* finishdate-30x30.png in Resources */,
+				B04A7AB419BEFBCB006D8BA4 /* fav-highlight.png in Resources */,
 				B04FC27219B4405700B2F2A9 /* InfoPlist.strings in Resources */,
 				B04A7A8119B845CF006D8BA4 /* stairs-blue-30x30.png in Resources */,
 				B04A7A7019B845CF006D8BA4 /* Sponsor.png in Resources */,
@@ -632,6 +663,7 @@
 				B04FC27B19B4405700B2F2A9 /* Main.storyboard in Resources */,
 				B04A7A9319B845CF006D8BA4 /* High-to-Low-Prob-50x50.png in Resources */,
 				B04A7A8E19B845CF006D8BA4 /* On-Click-Z-to-A-50x50.png in Resources */,
+				B04A7AB519BEFBCB006D8BA4 /* Portfolio-blue.png in Resources */,
 				B04A7A8019B845CF006D8BA4 /* stairs-white-30x30.png in Resources */,
 				B04A7A6F19B845CF006D8BA4 /* waterline-30x30.png in Resources */,
 				B04A7A8819B845CF006D8BA4 /* Slide-favourite-50x50.png in Resources */,
