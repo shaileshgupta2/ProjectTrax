@@ -13,6 +13,7 @@
 {
     
 }
+@property (weak, nonatomic) IBOutlet UIImageView *is_favourite;
 @property (weak, nonatomic) IBOutlet UILabel *nameField;
 
 @property (weak, nonatomic) IBOutlet UILabel *UpdatedOn;

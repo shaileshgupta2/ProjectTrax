@@ -21,15 +21,13 @@
     BOOL isFiltered ;
     NSMutableArray *projectData;
     NSMutableArray *filteredprojectData;
-    
+    NSMutableArray *favouriteProjects1;
+    BOOL isSorted;
     
     NSMutableArray *favouriteProjects;
-    NSMutableArray *favouriteProjects2;
-     NSMutableArray *favouriteProjects4;
-    
-
     
 }
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sortByNameButton;
 @property (weak, nonatomic) IBOutlet UITableView *ProjectTable;
 - (IBAction)sortByName:(id)sender;
 
@@ -51,7 +49,7 @@
     
     filteredprojectData= [[NSMutableArray alloc] init];
     favouriteProjects= [[NSMutableArray alloc] init];
-
+    
 }
 - (void)viewDidLoad
 {
@@ -64,14 +62,14 @@
     ProjectDataSource *projectsource =[[ProjectDataSource alloc]init];
     projectData = [projectsource getAllProjects];
     
-   
+    
     [self set_favouritesToProject];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-
+    
     [self set_favouritesToProject];
     [_ProjectTable reloadData];
     
@@ -95,7 +93,7 @@
 
 
 
- 
+
 
 
 
@@ -111,74 +109,79 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-        if(isFiltered)
-        {
-            return filteredprojectData.count;
-        }
-        else{
-            return projectData.count;
-        }
+    if(isFiltered)
+    {
+        return filteredprojectData.count;
+    }
+    else{
+        return projectData.count;
+    }
     
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProjectCell *cell;
-   
-        
-        NSString *cellIdentifier = @"Projcell";
     
-        cell = (ProjectCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        
-        
-        if (cell == nil) {
-        }
-        
-        NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-        
-        [rightUtilityButtons sw_addUtilityButtonWithColor:
-         [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:0.7]
-                                               normalIcon:[UIImage imageNamed:@"favourite-grey-50x50.png"] selectedIcon:[UIImage imageNamed:@"favourite-blue-50x50.png"]];
-        cell.rightUtilityButtons = rightUtilityButtons;
     
-        cell.delegate = self;
-        ProjectModel *projinfo ;
-        if(isFiltered)
-                {
-                    NSLog(@"Reloding data with following data%@",filteredprojectData);
-                    projinfo = [filteredprojectData objectAtIndex:indexPath.row];
-                }
-                else
-                {
-                    
-                    projinfo  = [projectData objectAtIndex:indexPath.row];
-                }
+    NSString *cellIdentifier = @"Projcell";
+    
+    cell = (ProjectCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    
+    if (cell == nil) {
+    }
+    
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7]
+                                           normalIcon:[UIImage imageNamed:@"favourite-grey-50x50.png"] selectedIcon:[UIImage imageNamed:@"add-to-fav.png"]];
+    
+    [cell setRightUtilityButtons:rightUtilityButtons WithButtonWidth:50];
+    // cell.rightUtilityButtons = rightUtilityButtons;
+    
+    cell.delegate = self;
+    ProjectModel *projinfo ;
+    if(isFiltered)
+    {
+        NSLog(@"Reloding data with following data%@",filteredprojectData);
+        projinfo = [filteredprojectData objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        
+        projinfo  = [projectData objectAtIndex:indexPath.row];
+    }
     //fav
-        if([projinfo.isFav isEqualToString:@"Yes"])
-        {
-            [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:YES];
-            
-        }
-        else
-        {
-            [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:NO];
-            
-        }
-        //color
+    if([projinfo.isFav isEqualToString:@"Yes"])
+    {
+        [cell.is_favourite setHidden:FALSE];
+        [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:YES];
         
-        if (indexPath.row % 2) {
-            UIColor* grey70 = [UIColor colorWithWhite: 0.95 alpha:1];
-
-            cell.contentView.backgroundColor =grey70;
-        } else {
-            UIColor* white = [UIColor colorWithWhite: 1 alpha:1];
-
-            cell.contentView.backgroundColor = white;
-        }
-        cell.nameField.text =[projinfo.projName stringByAppendingString:projinfo.isFav];
+    }
+    else
+    {
+        [cell.is_favourite setHidden:true];
         
+        [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:NO];
         
-        return cell;
+    }
+    //color
+    
+    if (indexPath.row % 2) {
+        UIColor* grey70 = [UIColor colorWithWhite: 0.95 alpha:1];
+        
+        cell.contentView.backgroundColor =grey70;
+    } else {
+        UIColor* white = [UIColor colorWithWhite: 1 alpha:1];
+        
+        cell.contentView.backgroundColor = white;
+    }
+    cell.nameField.text =[projinfo.projName stringByAppendingString:projinfo.isFav];
+    
+    
+    return cell;
     
     
     
@@ -187,9 +190,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    
     [self performSegueWithIdentifier:@"DetailSegue" sender:self];
-
+    
 }
 
 #pragma mark-rightutility button
@@ -210,15 +213,25 @@
             {
                 [self set_favourites:[projectData objectAtIndex:indexOfCell.row]];
             }
-            [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:YES];
-            
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Favourites" message:@"Saved to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            
-            [alertView show];
+            // [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:YES];
+            if([[[cell rightUtilityButtons] objectAtIndex:0] isSelected])
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Favourites" message:@"Already Saved as favorites" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                
+                [alertView show];
+                
+            }
+            else
+            {UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Favourites" message:@"Saved to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                
+                [alertView show];
+                
+                
+            }
             break;
             
         }
-       
+            
         default:
             break;
     }
@@ -230,11 +243,23 @@
 
 - (IBAction)sortByName:(id)sender {
     NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:YES];
+    
+    if(!(isSorted))
+    {
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:YES];
+        isSorted=TRUE;
+        
+    }
+    else
+    {
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:NO];
+        isSorted=FALSE;
+    }
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray;
     sortedArray = [projectData sortedArrayUsingDescriptors:sortDescriptors];
     projectData = sortedArray;
+    
     [_ProjectTable reloadData];
     
 }
