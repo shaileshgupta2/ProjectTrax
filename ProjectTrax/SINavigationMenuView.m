@@ -27,6 +27,8 @@
         self.menuButton = [[SIMenuButton alloc] initWithFrame:frame];
         [self.menuButton.title setTextColor:[UIColor redColor]];
         self.menuButton.title.text = title;
+        self.menuButton.title.font =   [UIFont fontWithName:@"Helvetica Neue" size:14];
+
          [self.menuButton.title.font fontWithSize:1];
         [self.menuButton addTarget:self action:@selector(onHandleMenuTap:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.menuButton];

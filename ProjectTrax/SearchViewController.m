@@ -18,8 +18,11 @@
 
     NSString *searchSelected;
     BOOL isFiltered ;
+    bool isSorted;
     SINavigationMenuView *menu;
 }
+- (IBAction)sortByName:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 @property (strong, nonatomic) IBOutlet UITableView *searchTable;
 
@@ -74,6 +77,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isSorted = false;
     
    	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -129,7 +133,7 @@
     
     NSString *cellIdentifier = @"Searchcell";
 
-    cell = (ProjectCell*)[_searchTable dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+   // cell = (ProjectCell*)[_searchTable dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     
     if (cell == nil) {
@@ -217,4 +221,39 @@
 }
 */
 
+- (IBAction)sortByName:(id)sender {
+    
+    
+    NSSortDescriptor *sortDescriptor;
+    if(!(isSorted))
+    {
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:YES];
+        
+        [sender setImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"]  forState:UIControlStateNormal];
+        //  [sender setImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"] forState:UIControlStateHighlighted] ;
+        isSorted=TRUE;
+        //    [_sortByNameButton setWidth:10];
+        //   [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
+        
+    }
+    else
+    {
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:NO];
+        isSorted=FALSE;
+        [sender setImage:[UIImage imageNamed:@"A-to-Z-50x50[1].png"]  forState:UIControlStateNormal];
+        
+        //  [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"A-to-Z-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
+    }
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    [_currentSearchProjects sortUsingDescriptors:sortDescriptors];
+    //[_favouriteProjects sortedArrayUsingDescriptors:sortDescriptors];
+    //NSLog(@"sorted array---->%@",sortedArray);
+    
+    // _favouriteProjects = sortedArray;
+    isFiltered = false;
+    [_searchTable reloadData];
+   // [self.searchDisplayController.searchResultsTableView reloadData];
+
+}
 @end

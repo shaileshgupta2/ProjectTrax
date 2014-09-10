@@ -513,7 +513,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nnF-hu-07j">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Searchcell" id="nnF-hu-07j">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nnF-hu-07j" id="KMP-5C-Q6u">
@@ -534,10 +534,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="5Jx-aM-A6z"/>
+                    <navigationItem key="navigationItem" id="5Jx-aM-A6z">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="WK8-oU-0F0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MWz-A3-oxP">
+                                <rect key="frame" x="264" y="2" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="A-to-Z-50x50.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sortByName:" destination="22h-vP-SnR" eventType="touchUpInside" id="oxX-Te-TrP"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="rnB-Ee-7Bd" id="lBt-Mi-n5p"/>
+                        <outlet property="searchTable" destination="SDQ-9n-w1R" id="jkr-2O-fNv"/>
                         <outlet property="searchbar" destination="WD2-rX-H1J" id="uTi-z2-C3h"/>
                     </connections>
                 </viewController>
@@ -584,7 +598,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1557" y="562"/>
+            <point key="canvasLocation" x="1548" y="570"/>
         </scene>
         <!--Proj View Controller - Portfolio-->
         <scene sceneID="b2f-om-KG5">
@@ -912,6 +926,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="A-to-Z-50x50.png" width="50" height="50"/>
         <image name="A-to-Z-50x50[1].png" width="50" height="50"/>
         <image name="Arrow-Green-40x40.png" width="40" height="40"/>
         <image name="Arrow-RED-40x40.png" width="40" height="40"/>
