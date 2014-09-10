@@ -723,7 +723,6 @@
                     <tabBarItem key="tabBarItem" title="Portfolio" image="nutshell-blue-30x30.png" id="g0x-IT-iuj"/>
                     <connections>
                         <outlet property="ProjectTable" destination="q6C-oj-F8V" id="Wmu-YG-PmQ"/>
-                        <outlet property="sortByNameButton" destination="y70-ej-1xH" id="0hg-vF-g87"/>
                         <segue destination="8Om-bB-liV" kind="push" identifier="DetailSegue" id="mqT-N7-abr"/>
                     </connections>
                 </viewController>
