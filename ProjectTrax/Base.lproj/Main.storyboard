@@ -708,6 +708,7 @@
                     <navigationItem key="navigationItem" id="vOB-dM-deY"/>
                     <connections>
                         <outlet property="ProjectTable" destination="q6C-oj-F8V" id="Wmu-YG-PmQ"/>
+                        <outlet property="sortByNameButton" destination="yxF-Il-n9G" id="tsg-PY-kFi"/>
                         <segue destination="8Om-bB-liV" kind="push" identifier="DetailSegue" id="mqT-N7-abr"/>
                     </connections>
                 </viewController>
@@ -837,7 +838,7 @@
                                                 <segue destination="22h-vP-SnR" kind="push" identifier="SearchSegue" id="BMw-dK-z6j"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Sort" id="Qs2-Le-Etn">
+                                        <barButtonItem key="rightBarButtonItem" image="A-to-Z-50x50[1].png" id="Qs2-Le-Etn">
                                             <connections>
                                                 <action selector="sortByName:" destination="EEV-MX-sKB" id="Xvy-mm-FOz"/>
                                             </connections>
@@ -878,6 +879,7 @@
     </scenes>
     <resources>
         <image name="A-to-Z-50x50.png" width="50" height="50"/>
+        <image name="A-to-Z-50x50[1].png" width="50" height="50"/>
         <image name="Arrow-Green-40x40.png" width="40" height="40"/>
         <image name="Arrow-RED-40x40.png" width="40" height="40"/>
         <image name="PL-30x30.png" width="30" height="30"/>
@@ -908,6 +910,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="mqT-N7-abr"/>
-        <segue reference="BMw-dK-z6j"/>
+        <segue reference="z4F-A6-VTa"/>
     </inferredMetricsTieBreakers>
 </document>
