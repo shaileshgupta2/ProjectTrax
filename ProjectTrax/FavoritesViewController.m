@@ -16,6 +16,8 @@
 @interface FavoritesViewController ()
 {
  NSMutableArray *favourites;
+    BOOL isSorted;
+
 }
 - (IBAction)sortByName:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *favoritesTable;
@@ -45,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    isSorted=false;
 
    // self.navigationController.title=@"Favourites";
 
@@ -187,7 +190,26 @@
     
    
         NSSortDescriptor *sortDescriptor;
+    if(!(isSorted))
+    {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:YES];
+        
+        [sender setImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"]  forState:UIControlStateNormal];
+        //  [sender setImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"] forState:UIControlStateHighlighted] ;
+        isSorted=TRUE;
+        //    [_sortByNameButton setWidth:10];
+        //   [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
+        
+    }
+    else
+    {
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:NO];
+        isSorted=FALSE;
+        [sender setImage:[UIImage imageNamed:@"A-to-Z-50x50[1].png"]  forState:UIControlStateNormal];
+        
+        //  [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"A-to-Z-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
+    }
+
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
        [_favouriteProjects sortUsingDescriptors:sortDescriptors];
         //[_favouriteProjects sortedArrayUsingDescriptors:sortDescriptors];
