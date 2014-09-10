@@ -27,7 +27,8 @@
     NSMutableArray *favouriteProjects;
     
 }
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sortByNameButton;
+@property (weak, nonatomic) IBOutlet UIButton *sortByNameButton;
+
 @property (weak, nonatomic) IBOutlet UITableView *ProjectTable;
 - (IBAction)sortByName:(id)sender;
 
@@ -247,13 +248,19 @@
     if(!(isSorted))
     {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:YES];
+        
+       
+      //  [sender setImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"] forState:UIControlStateHighlighted] ;
         isSorted=TRUE;
+    //    [_sortByNameButton setWidth:10];
+      //   [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"Z-to-A-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
         
     }
     else
     {
         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"projName" ascending:NO];
         isSorted=FALSE;
+      //  [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"A-to-Z-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
     }
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray;
