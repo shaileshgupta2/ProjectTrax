@@ -45,6 +45,13 @@
 
 -(void)start
 {
+    // reading json
+    
+    jsonParser *js = [jsonParser new];
+    [js loadJson];
+    
+    
+    
     bool favoritebuttonstatus = false;
     
     if (favoritebuttonstatus == true) {
@@ -401,7 +408,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBarHidden =YES;
   //  [self start];
     
 

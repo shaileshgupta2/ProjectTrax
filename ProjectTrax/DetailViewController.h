@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "StatusCell.h"
+#import "jsonParser.h"
+
 @interface DetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
