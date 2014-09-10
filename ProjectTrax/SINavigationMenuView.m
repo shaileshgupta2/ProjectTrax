@@ -37,7 +37,7 @@
 -(void)setTitle:(NSString *)title
 {
     self.menuButton.title.text =  title;
-    [self.menuButton.title setTextColor:[UIColor redColor]];
+    [self.menuButton.title setTextColor:[UIColor blackColor]];
 
 }
 
