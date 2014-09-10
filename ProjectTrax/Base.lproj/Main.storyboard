@@ -873,7 +873,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="22h-vP-SnR" kind="push" id="aN7-Dt-VDL"/>
+                                            <segue destination="22h-vP-SnR" kind="push" identifier="SearchSegue" id="aN7-Dt-VDL"/>
                                         </connections>
                                     </button>
                                 </subviews>

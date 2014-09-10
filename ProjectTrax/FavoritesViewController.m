@@ -108,9 +108,10 @@
         
         [rightUtilityButtons sw_addUtilityButtonWithColor:
          [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:0.7]
-                                               icon:[UIImage imageNamed:@"delete_fav.png"] ];
-        cell.rightUtilityButtons = rightUtilityButtons;
-    
+                                               icon:[UIImage imageNamed:@"remove-fav.png"] ];
+     //   cell.rightUtilityButtons = rightUtilityButtons;
+    [cell setRightUtilityButtons:rightUtilityButtons WithButtonWidth:50];
+
         cell.delegate = self;
         ProjectModel *projinfo ;
         // Configure the cell...
