@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		987416E719BF2F22002512C9 /* json_structure.json in Resources */ = {isa = PBXBuildFile; fileRef = 987416E619BF2F22002512C9 /* json_structure.json */; };
 		98FAB4CB19B9E06400491924 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FAB4CA19B9E06400491924 /* jsonParser.m */; };
+		B00F128219C045CB00BBB2F2 /* back_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B00F128119C045CB00BBB2F2 /* back_arrow.png */; };
+		B00F128419C0469E00BBB2F2 /* back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = B00F128319C0469E00BBB2F2 /* back_btn.png */; };
 		B04A7A1919B832A1006D8BA4 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B04A7A1519B832A1006D8BA4 /* StatusCell.m */; };
 		B04A7A1A19B832A1006D8BA4 /* StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04A7A1619B832A1006D8BA4 /* StatusCell.xib */; };
 		B04A7A1B19B832A1006D8BA4 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04A7A1819B832A1006D8BA4 /* DetailViewController.m */; };
@@ -131,6 +133,8 @@
 		987416E619BF2F22002512C9 /* json_structure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = json_structure.json; sourceTree = "<group>"; };
 		98FAB4C919B9E06400491924 /* jsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonParser.h; sourceTree = "<group>"; };
 		98FAB4CA19B9E06400491924 /* jsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jsonParser.m; sourceTree = "<group>"; };
+		B00F128119C045CB00BBB2F2 /* back_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_arrow.png; sourceTree = "<group>"; };
+		B00F128319C0469E00BBB2F2 /* back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_btn.png; sourceTree = "<group>"; };
 		B04A7A1419B832A1006D8BA4 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
 		B04A7A1519B832A1006D8BA4 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
 		B04A7A1619B832A1006D8BA4 /* StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCell.xib; sourceTree = "<group>"; };
@@ -315,10 +319,12 @@
 		B04A7A1F19B8453A006D8BA4 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				B00F128319C0469E00BBB2F2 /* back_btn.png */,
 				B04A7A5419B845CF006D8BA4 /* A-to-Z-50x50.png */,
 				B04A7AAA19BEFBCB006D8BA4 /* A-to-Z-50x50[1].png */,
 				B04A7A4119B845CF006D8BA4 /* Active-Favourite-212x100.png */,
 				B04A7A4019B845CF006D8BA4 /* Active-Pipeline-212x100.png */,
+				B00F128119C045CB00BBB2F2 /* back_arrow.png */,
 				B04A7A3F19B845CF006D8BA4 /* Active-portfolio-212x100 copy.PNG */,
 				B04A7AAB19BEFBCB006D8BA4 /* add-to-fav.png */,
 				B04A7A4E19B845CF006D8BA4 /* Arrow-Green-40x40.png */,
@@ -622,6 +628,7 @@
 				B04FC28019B4405800B2F2A9 /* Images.xcassets in Resources */,
 				B04A7AB919BEFBCB006D8BA4 /* Z-to-A-50x50[1].png in Resources */,
 				B04A7A6019B845CF006D8BA4 /* issue-low-level.png in Resources */,
+				B00F128219C045CB00BBB2F2 /* back_arrow.png in Resources */,
 				B04A7A6A19B845CF006D8BA4 /* startdate-30x30.png in Resources */,
 				B04A7A6119B845CF006D8BA4 /* issue-medium-level-30x30.png in Resources */,
 				B04A7A6C19B845CF006D8BA4 /* PL-30x30.png in Resources */,
@@ -657,6 +664,7 @@
 				B04A7A6719B845CF006D8BA4 /* stakeholder-30x30.png in Resources */,
 				987416E719BF2F22002512C9 /* json_structure.json in Resources */,
 				B04A7A6519B845CF006D8BA4 /* Supplier-Group-30x30.png in Resources */,
+				B00F128419C0469E00BBB2F2 /* back_btn.png in Resources */,
 				B04A7A6319B845CF006D8BA4 /* SOW-30x30.png in Resources */,
 				B04A7A6419B845CF006D8BA4 /* purchase-order-30x30.png in Resources */,
 				B04A7A9719B845CF006D8BA4 /* splash640x1136.png in Resources */,

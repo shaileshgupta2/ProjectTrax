@@ -48,7 +48,7 @@
     
     
     UIButton *backButton = [[UIButton alloc] initWithFrame: CGRectMake(0, 0, 20.0f, 20.0f)];
-    UIImage *backImage = [[UIImage imageNamed:@"Arrow-RED-40x40.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12.0f, 0, 12.0f)];
+    UIImage *backImage = [[UIImage imageNamed:@"back_btn.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12.0f, 0, 12.0f)];
     [backButton setBackgroundImage:backImage  forState:UIControlStateNormal];
     // [backButton setTitle:@"Back" forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
@@ -156,6 +156,7 @@
     
     
     cell.textLabel.text = projinfo.projName;
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
     cell.cost_past.image = [UIImage imageNamed:@"Arrow-Green-40x40.png"];
 
     return cell;
