@@ -57,7 +57,7 @@
     
     isSorted=TRUE;
     
-    _favourites = [[NSMutableArray alloc] initWithObjects:@"WL1",@"WL3", @"WL4",nil];
+    _favourites = [[NSMutableArray alloc] initWithObjects:nil];
     
     ProjectDataSource *projectsource =[[ProjectDataSource alloc]init];
     projectData = [projectsource getAllProjects];
@@ -70,7 +70,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     
-    [self set_favouritesToProject];
+    //[self set_favouritesToProject];
     [_ProjectTable reloadData];
     
     
@@ -123,7 +123,6 @@
 {
     ProjectCell *cell;
     
-    
     NSString *cellIdentifier = @"Projcell";
     
     cell = (ProjectCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -154,7 +153,7 @@
         projinfo  = [projectData objectAtIndex:indexPath.row];
     }
     //fav
-    if([projinfo.isFav isEqualToString:@"Yes"])
+    if([[projinfo isFav] isEqualToString:@"Yes"])
     {
         [cell.is_favourite setHidden:FALSE];
         [[[cell rightUtilityButtons] objectAtIndex:0] setSelected:YES];
@@ -178,7 +177,10 @@
         
         cell.contentView.backgroundColor = white;
     }
-    cell.nameField.text =[projinfo.projName stringByAppendingString:projinfo.isFav];
+    
+    NSLog(@"===== %@",projinfo);
+     //NSString *newString = [projinfo projName];
+    cell.nameField.text = [projinfo projName];
     
     
     return cell;
@@ -222,7 +224,7 @@
                 
             }
             else
-            {UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Favourites" message:@"Saved to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            {UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Favourites" message:@"Added to favorites successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 
                 [alertView show];
                 
@@ -263,9 +265,9 @@
 
       //  [_sortByNameButton setBackgroundImage:[UIImage imageNamed:@"A-to-Z-50x50[1].png"] forState:UIControlStateNormal style:UIBarButtonItemStylePlain barMetrics:UIBarMetricsDefault];
     }
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray;
-    sortedArray = [projectData sortedArrayUsingDescriptors:sortDescriptors];
+    NSMutableArray *sortDescriptors = [NSMutableArray arrayWithObject:sortDescriptor];
+    NSMutableArray *sortedArray = [[NSMutableArray alloc]initWithArray:[projectData sortedArrayUsingDescriptors:sortDescriptors]];
+    //sortedArray = [projectData sortedArrayUsingDescriptors:sortDescriptors];
     projectData = sortedArray;
     
     [_ProjectTable reloadData];
@@ -278,21 +280,24 @@
 
 -(void) set_favouritesToProject
 {
-    ProjectModel *projectinfo;
+    //ProjectModel *projectinfo;
     NSMutableArray *tempArrayData;
     if(isFiltered)
     {
         tempArrayData = [[NSMutableArray alloc] initWithArray:filteredprojectData];
-        
     }
     else
     {
         tempArrayData = [[NSMutableArray alloc] initWithArray:projectData];
-        
     }
-    for(projectinfo in tempArrayData)
+    
+    for(int i=0;i<[tempArrayData count];i++)
     {
-        if([_favourites containsObject:projectinfo.projNo])
+        ProjectModel *projectinfo = [tempArrayData objectAtIndex:i];   // NSLog(@"%d----ß",i);
+        NSString *str = [projectinfo projName];
+        NSLog(@"%@ %d",str, i);
+        
+        if([_favourites containsObject:[projectinfo projno]])
         {
             if(!([favouriteProjects containsObject:projectinfo]))
             {
@@ -304,10 +309,10 @@
             projectinfo.isFav=@"No";
             
             [favouriteProjects removeObject:projectinfo];
-            
         }
+        
     }
-    
+    NSLog(@"*****");
     if(isFiltered)
     {
         filteredprojectData = tempArrayData;
@@ -315,8 +320,6 @@
     else
     {
         projectData = tempArrayData;
-        
-        
     }
     [self passTo_favouritesTab ];
     
@@ -324,7 +327,7 @@
 
 -(void) set_favourites : (ProjectModel*) projectinfo
 {
-    [_favourites addObject:projectinfo.projNo];
+    [_favourites addObject:projectinfo.projno];
     [self set_favouritesToProject];
     [_ProjectTable reloadData];
 }
@@ -354,6 +357,15 @@
     {
         SearchViewController *searchcontroller = [segue destinationViewController];
         searchcontroller.currentSearchProjects = projectData;
+    }
+    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
+        
+        DetailViewController *detailcontroller = [segue destinationViewController];
+        NSIndexPath *path = [self.ProjectTable indexPathForSelectedRow];
+        ProjectModel *currPr = [projectData objectAtIndex:path.row];
+        detailcontroller.currentProject =currPr ;
+        
+        
     }
 }
 @end

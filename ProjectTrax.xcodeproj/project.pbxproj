@@ -321,17 +321,17 @@
 		B04A7A1F19B8453A006D8BA4 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				B00F128319C0469E00BBB2F2 /* back_btn.png */,
-				B00F128519C0490000BBB2F2 /* arrow_down_float.png */,
 				B04A7A5419B845CF006D8BA4 /* A-to-Z-50x50.png */,
 				B04A7AAA19BEFBCB006D8BA4 /* A-to-Z-50x50[1].png */,
 				B04A7A4119B845CF006D8BA4 /* Active-Favourite-212x100.png */,
 				B04A7A4019B845CF006D8BA4 /* Active-Pipeline-212x100.png */,
-				B00F128119C045CB00BBB2F2 /* back_arrow.png */,
 				B04A7A3F19B845CF006D8BA4 /* Active-portfolio-212x100 copy.PNG */,
 				B04A7AAB19BEFBCB006D8BA4 /* add-to-fav.png */,
 				B04A7A4E19B845CF006D8BA4 /* Arrow-Green-40x40.png */,
 				B04A7A4F19B845CF006D8BA4 /* Arrow-RED-40x40.png */,
+				B00F128519C0490000BBB2F2 /* arrow_down_float.png */,
+				B00F128119C045CB00BBB2F2 /* back_arrow.png */,
+				B00F128319C0469E00BBB2F2 /* back_btn.png */,
 				B04A7A3619B845CF006D8BA4 /* category-30x30.png */,
 				B04A7A4B19B845CF006D8BA4 /* check-50x50.png */,
 				B04A7AAC19BEFBCB006D8BA4 /* fav-highlight.png */,

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "StatusCell.h"
-#import "jsonParser.h"
+#import "ProjectModel.h"
 
 @interface DetailViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic) ProjectModel *currentProject;
 
 -(void)start;
 
@@ -34,7 +35,7 @@
         @property (strong, nonatomic) IBOutlet UITextView *ProjectTextView;
     @property (strong, nonatomic) IBOutlet UIView *StageViewLayout;
         @property (strong, nonatomic) IBOutlet UIButton *StageButton;
-        @property (strong, nonatomic) IBOutlet UILabel *DaurationLabel;
+        @property (strong, nonatomic) IBOutlet UILabel *DurationLabel;
         @property (strong, nonatomic) IBOutlet UILabel *PacificLabel;
     @property (strong, nonatomic) IBOutlet UILabel *ProjectTypeLabel;
     @property (strong, nonatomic) IBOutlet UILabel *SubCategoryLabel;

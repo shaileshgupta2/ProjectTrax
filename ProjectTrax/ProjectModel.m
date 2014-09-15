@@ -10,23 +10,7 @@
 
 @implementation ProjectModel
 
--(id) initWithId :  (NSString *)  prjno :(NSString *)  prjname :(NSString *)  prjmanager : (NSString *) updatedon : (NSString *) prjstage : (NSString *) prjfunction : (NSString *) prjSch: (NSString *) prjCost:(NSString *) prjScp: (NSString *) prjRisk:(NSString *) isFav
-{
-    if(self = [super init])
-    {
-        _projNo = prjno;
-    _projName=prjname;
-    _projMan=prjmanager;
-    _updOn = updatedon;
-    
-    _stage = prjstage;
-    _function= prjfunction;
-    _sch=prjSch;
-    _scp=prjScp;
-    _cost=prjCost;
-    _risk=prjRisk;
-    _isFav=isFav;
-    }
-    return self;
-}
+
+@synthesize projMan,projName,priority,plnLeader,projno,sch_color,sch_trend,scope_color,scope_trend,risk_color,risk_trend,cost_color,cost_trend,isFav,desc,stage,duration,region,category,subcategory,waterLine,sponser,highlights,updOn,nextsteps,issues_risks;
+
 @end

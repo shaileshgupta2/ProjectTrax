@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+
 @interface LoginViewController ()
 
 @end
@@ -23,6 +24,8 @@
 
     // [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menubar-ios7.png"] forBarMetrics:UIBarMetricsDefault];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"splash640x1136.png"]];
+   
+    
 
     // Uncomment to display the share and camera button
     

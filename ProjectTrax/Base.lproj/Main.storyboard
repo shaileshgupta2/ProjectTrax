@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LRM-D4-2di">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LRM-D4-2di">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -81,7 +81,6 @@
                                             <segment title="" image="highlights-blue-30x30.png"/>
                                             <segment title="" image="stairs-blue-30x30.png"/>
                                             <segment title="" image="issues-blue-30x30.png"/>
-                                            <segment title="" image="risks-blue-30x30.png"/>
                                         </segments>
                                         <connections>
                                             <action selector="viewSelected:" destination="8Om-bB-liV" eventType="valueChanged" id="Ukn-03-amb"/>
@@ -455,6 +454,7 @@
                     <navigationItem key="navigationItem" id="IZt-cW-1SI"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
+                        <outlet property="DurationLabel" destination="HS4-Lj-LGT" id="yZw-fj-lSO"/>
                         <outlet property="FifthView" destination="PFE-BW-XJn" id="Ih0-V9-OU0"/>
                         <outlet property="FirstView" destination="wZX-Jl-HvP" id="EeX-hI-6id"/>
                         <outlet property="FourthView" destination="3D9-PV-uRa" id="DEv-VJ-2oz"/>
@@ -944,7 +944,6 @@
         <image name="issues-blue-30x30.png" width="30" height="30"/>
         <image name="nutshell-white-30x30.png" width="30" height="30"/>
         <image name="priority-30x30.png" width="30" height="30"/>
-        <image name="risks-blue-30x30.png" width="30" height="30"/>
         <image name="search-50x50.png" width="50" height="50"/>
         <image name="signin-button-450x60.png" width="450" height="60"/>
         <image name="stairs-blue-30x30.png" width="30" height="30"/>
@@ -958,7 +957,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aN7-Dt-VDL"/>
-        <segue reference="bTU-80-f6a"/>
+        <segue reference="HX0-UO-yk5"/>
+        <segue reference="mqT-N7-abr"/>
     </inferredMetricsTieBreakers>
 </document>

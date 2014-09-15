@@ -7,13 +7,21 @@
 //
 
 #import "DetailViewController.h"
-
+#import "jsonParser.h"
 
 @interface DetailViewController ()
-
+{
+    ProjectModel *proj;
+    NSArray *highlights;
+    NSArray *nextsteps;
+    NSArray *issues_risks;
+}
 @end
 
 @implementation DetailViewController
+
+@synthesize currentProject;
+
 
 @synthesize navigationButton;
 @synthesize favoriteButton;
@@ -23,7 +31,7 @@
 
 @synthesize FirstView;
     @synthesize TextViewOutLet,ProjectTextView;
-    @synthesize StageViewLayout,StageButton,DaurationLabel,PacificLabel;
+    @synthesize StageViewLayout,StageButton,DurationLabel,PacificLabel;
     @synthesize ProjectTypeLabel,SubCategoryLabel,SponserLabel,WaterLineLabel,PriorityLabel,ProjectManagerLabel,PlanLeaderLabel;
     @synthesize StatusView;
 
@@ -45,16 +53,94 @@
 
 -(void)start
 {
-    // reading json
     
-    jsonParser *js = [jsonParser new];
-    [js loadJson];
+  
+    proj = currentProject;
+    
+    NSLog(@"--------  %@",[currentProject projName]);
+    
+    ProjectTitleLabel.text =  [proj projName];
+    NSMutableString *Date = [[NSMutableString alloc]initWithString:@"Last Updated  :  "];
+    [Date appendString:[proj updOn]];
+    LastUpdateLable.text = Date ;
+    
+    ProjectTextView.text = proj.desc;
+    [StageButton setTitle:[proj stage] forState:UIControlStateNormal];
+    
+    DurationLabel.text = [proj duration];
+    
+    NSMutableString *region = [NSMutableString new];
+   
+    int rgnCnt =[[proj region]count];
+    for (int j=0; j<rgnCnt; j++) {
+        [region appendString:[[proj region]objectAtIndex:j]];
+         if(j<rgnCnt-1)
+             [region appendString:@" "];
+    }
+    PacificLabel.text = region;
+    
+    
+    ProjectTypeLabel.text = [proj category];
+    SubCategoryLabel.text = [proj subcategory];
+    
+    SponserLabel.text = [proj sponser];
+    WaterLineLabel.text = [proj waterLine];
+    PriorityLabel.text = [proj priority];
+    ProjectManagerLabel.text = [proj projMan];
+    
+    NSArray *plnLeader = [proj plnLeader];
+    NSMutableString *plnldr = [[NSMutableString alloc]initWithString:@""];
+    for (int i = 0; i<[plnLeader count]; i++)
+    {
+        [plnldr appendString:[plnLeader objectAtIndex:i]];
+        if (i < [plnLeader count]-1)
+        [plnldr appendString:@" / "];
+    }
+    PlanLeaderLabel.text =plnldr;
+    
+   
+   // NSLog(@"----cost_color:  %@",[proj cost_color]);
+   // NSLog(@"----cost_trend:  %@",[proj cost_trend]);
+  //  NSLog(@"----scope_color:  %@",[proj scope_color]);
+  //  NSLog(@"----scope_trend:  %@",[proj scope_trend]);
+   // NSLog(@"----sch_color:  %@",[proj sch_color]);
+  //  NSLog(@"----sch_trend:  %@",[proj sch_trend]);
+  //  NSLog(@"----is_Fav:  %@",[proj isFav]);
+   
+    
+   highlights = [proj highlights];
+    
+   nextsteps = [proj nextsteps];
+    
+    //
+        issues_risks = [proj issues_risks];
+ /*   NSLog(@"----issues_risks");
+    for (NSDictionary *iss_risk in issues_risks) {
+        
+        NSLog(@"                risk:  %@",iss_risk[@"risk"]);
+        NSLog(@"                riskIndicator:  %@",proj[@"riskIndicator"]);
+        NSLog(@"                actions");
+        NSArray *actions = iss_risk[@"actions"];
+        for (int i =0; i<[actions count]; i++) {
+            NSLog(@"                        %d:  %@",i+1,[actions objectAtIndex:i]);
+        }
+        
+    }*/
     
     
     
-    bool favoritebuttonstatus = false;
     
-    if (favoritebuttonstatus == true) {
+    
+    
+    
+    
+    
+    
+    
+    NSString *isFav = [proj isFav];
+    //bool favoritebuttonstatus = false;
+    
+    if ([isFav  isEqual: @"Yes"]) {
          [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favourite-blue-50x50.png"] forState:UIControlStateNormal];
     }
     else
@@ -65,7 +151,7 @@
     //[navigationButton addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationController.navigationBarHidden =YES;
-   self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
     
     LastUpdateLable.layer.borderWidth = 2.0f;
@@ -104,42 +190,44 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView.tag ==1 ) {
-        int n = 8;
-        int cellhight=0;
-        NSString *str = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        int n = 1;
+        int cellheight=0;
+        NSString *str = [highlights objectAtIndex:indexPath.row];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         for (int i=0; i<n; i++) {
-            cellhight = cellhight+[self TextlabelHight:str];
+            cellheight = cellheight+[self TextlabelHight:str];
         }
-        cellhight = cellhight + (n-1)*8+20;
-        return cellhight;
+        cellheight = cellheight + (n-1)*8+20;
+        return cellheight;
     }
     else if (tableView.tag ==2)
     {
-        int n = 5;
-        int cellhight=0;
-        NSString *str = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        int n = 1;
+        int cellheight=0;
+        NSString *str = [nextsteps objectAtIndex:indexPath.row];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         for (int i=0; i<n; i++) {
-            cellhight = cellhight+[self TextlabelHight:str];
+            cellheight = cellheight+[self TextlabelHight:str];
         }
-        cellhight = cellhight + (n-1)*8+20;
-        return cellhight;
+        cellheight = cellheight + (n-1)*8+20;
+        return cellheight;
     }
     else if (tableView.tag ==3)
     {
         
-        int n = 5;
-        int cellhight=0;
         
-        NSString *str1 = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
-        cellhight = cellhight+[self TextlabelHight:str1];
-        cellhight = 10+20+5+cellhight +10+20;
+        int cellheight=0;
+        NSDictionary *issData =  [issues_risks objectAtIndex:indexPath.row];
+        NSString *risk = issData[@"risk"];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        NSArray *actions = issData[@"actions"];
+        int n = [actions count];
+        cellheight = cellheight+[self TextlabelHight:risk];
+        cellheight = 10+20+5+cellheight +10+20;
         
-         NSString *str2 = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
-        for (int i=1; i<n; i++) {
-            cellhight = cellhight+[self TextlabelHight:str2];
+        // NSString *str2 = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        for (int i=0; i<n; i++) {
+            cellheight = cellheight+[self TextlabelHight:[actions objectAtIndex:i]];
         }
-        cellhight = cellhight + (n-1)*8+20;
-        return cellhight;
+        cellheight = cellheight + (n-1)*8+20;
+        return cellheight;
     }
     else
     {
@@ -162,15 +250,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView.tag ==1 ) {
-        return 3;
+        return [highlights count];
     }
     else if (tableView.tag ==2)
     {
-        return 5;
+        return [nextsteps count];
     }
     else if (tableView.tag ==3)
     {
-        return  8;
+        return  [issues_risks count];
     }
     else
     {
@@ -199,24 +287,26 @@
         int width=250;
         int lenght=20;
         
-        int n=8;
+        int n=1;
         
         UILabel *count =[[UILabel alloc]initWithFrame:CGRectMake(20, 10, 10, 20)];
         [count setFont:[UIFont systemFontOfSize:12]];
-        count.text = @"1";
+        int cnt = indexPath.row;
+        NSString *a= [[NSString alloc]initWithFormat:@"%i",cnt];
+        count.text =a;
         [cell.contentView addSubview:count];
         
-        for(int i=1;i<=n;i++)
+        for(int i=0;i<n;i++)
         {
             
             UILabel *dash =[[UILabel alloc]initWithFrame:CGRectMake(x-12, y, 10, 20)];
             [dash setFont:[UIFont systemFontOfSize:12]];
-            dash.text = @"-";
+             dash.text = @"-";
             [cell.contentView addSubview:dash];
             
             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(x, y, width, lenght)];
             lab.numberOfLines = 0;
-            lab.text = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+            lab.text =[highlights objectAtIndex:indexPath.row] ;//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
             [lab setFont:[UIFont systemFontOfSize:12]];
             [lab sizeToFit];
             lab.backgroundColor =[UIColor clearColor];
@@ -237,14 +327,16 @@
         int width=250;
         int lenght=20;
         
-        int n=5;
+        int n=1;
         
         UILabel *count =[[UILabel alloc]initWithFrame:CGRectMake(20, 10, 10, 20)];
         [count setFont:[UIFont systemFontOfSize:12]];
-        count.text = @"1";
+        int cnt = indexPath.row;
+        NSString *a= [[NSString alloc]initWithFormat:@"%i",cnt];
+        count.text =a;
         [cell.contentView addSubview:count];
         
-        for(int i=1;i<=n;i++)
+        for(int i=0;i<n;i++)
         {
             
             UILabel *dash =[[UILabel alloc]initWithFrame:CGRectMake(x-12, y, 10, 20)];
@@ -254,7 +346,7 @@
             
             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(x, y, width, lenght)];
             lab.numberOfLines = 0;
-            lab.text = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+            lab.text =[nextsteps objectAtIndex:indexPath.row] ;//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
             [lab setFont:[UIFont systemFontOfSize:12]];
             [lab sizeToFit];
             lab.backgroundColor =[UIColor clearColor];
@@ -272,14 +364,22 @@
     {
       
         
-        int n=5;
+       // int n=5;
         
         
 //      **** Risk Icon  ****
-        
+        NSDictionary *issData =  [issues_risks objectAtIndex:indexPath.row];
         UIButton *count =[[UIButton alloc]initWithFrame:CGRectMake(10, 10, 20, 20)];
+        
+         NSString *riskIndicator = issData[@"riskIndicator"];
+        if([riskIndicator isEqual:@"High"])
+        {
         [count setBackgroundImage:[UIImage imageNamed:@"high-level-issue.png"] forState:UIControlStateNormal];
-       
+        }
+         else
+         {
+          [count setBackgroundImage:[UIImage imageNamed:@"issue-medium-level-30x30"] forState:UIControlStateNormal];
+         }
         [cell.contentView addSubview:count];
         
 //      **** Issues Section ****
@@ -292,7 +392,12 @@
         
         UILabel *issueDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(38, 35, 250, 20)];
         issueDetailLabel.numberOfLines = 0;
-        issueDetailLabel.text = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        
+        
+        //NSString *risk = issData[@"risk"];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        
+        
+        issueDetailLabel.text = issData[@"risk"];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         [issueDetailLabel setFont:[UIFont systemFontOfSize:12]];
         [issueDetailLabel sizeToFit];
         issueDetailLabel.backgroundColor =[UIColor clearColor];
@@ -311,7 +416,11 @@
         
         int hightforRisklabel = 10+20+5+issuselabelhight+10+20;
         
-        for(int i=1;i<n;i++)
+        NSArray *actions = issData[@"actions"];
+       
+        int n = [actions count];
+        
+        for(int i=0;i<n;i++)
         {
             
             UILabel *dash =[[UILabel alloc]initWithFrame:CGRectMake(38, hightforRisklabel , 10, 20)];
@@ -321,7 +430,7 @@
             
             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(50, hightforRisklabel, 250, 20)];
             lab.numberOfLines = 0;
-            lab.text = @"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+            lab.text = [actions objectAtIndex:i];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
             [lab setFont:[UIFont systemFontOfSize:12]];
             [lab sizeToFit];
             lab.backgroundColor =[UIColor clearColor];

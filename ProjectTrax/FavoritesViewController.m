@@ -70,7 +70,7 @@
     for(projectinfo in _favouriteProjects)
     {
         
-            [favourites addObject:projectinfo.projNo];
+            [favourites addObject:projectinfo.projno];
            }
 
 }
@@ -140,7 +140,8 @@
 
 
 #pragma mark-rightutility button
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
     
    
     
