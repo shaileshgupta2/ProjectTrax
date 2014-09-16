@@ -7,15 +7,27 @@
 //
 
 #import "LoginViewController.h"
+#import "TabbarViewController.h"
 
 @interface LoginViewController ()
-
+{
+    BOOL hasLogged;
+}
 @end
 
 @implementation LoginViewController
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES];
+    hasLogged =  false;
+    if(hasLogged)
+    {
+    [self performSegueWithIdentifier:@"ProjectSegue" sender:self];
+    }
+    else
+    {
+        
+    }
 
 }
 - (void)viewDidLoad
@@ -39,5 +51,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    NSLog(@"%@",segue.identifier);
+    if([segue.identifier isEqualToString:@"ProjectSegue"])
+    {
+        TabbarViewController *searchcontroller = [segue destinationViewController];
+       // searchcontroller.currentSearchProjects = projectData;
+    }
+   }
 @end
