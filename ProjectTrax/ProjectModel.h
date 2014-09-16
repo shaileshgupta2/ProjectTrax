@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) NSString *projno;
 @property (nonatomic,strong) NSString *projName;
+@property (nonatomic,strong) NSString *fileRef;
 @property (nonatomic,strong) NSString *updOn;
 @property (nonatomic,strong) NSString *projMan;
 

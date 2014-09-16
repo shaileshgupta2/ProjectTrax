@@ -10,5 +10,5 @@
 
 @interface ProjectDataSource : NSObject
 -(NSArray *)getAllProjects;
-
+-(NSString *)getIconName :(NSString *)icolor : (NSString *)itrend;
 @end
