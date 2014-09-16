@@ -63,14 +63,14 @@
     projectData = [projectsource getAllProjects];
     
     
-    [self set_favouritesToProject];
+   // [self set_favouritesToProject];
     
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     
-    //[self set_favouritesToProject];
+    [self set_favouritesToProject];
     [_ProjectTable reloadData];
     
     
@@ -196,7 +196,26 @@
     [self performSegueWithIdentifier:@"DetailSegue" sender:self];
     
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    NSLog(@"%@",segue.identifier);
+    if([segue.identifier isEqualToString:@"SearchSegue"])
+    {
+        SearchViewController *searchcontroller = [segue destinationViewController];
+        searchcontroller.currentSearchProjects = projectData;
+    }
+    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
+        
+        DetailViewController *detailcontroller = [segue destinationViewController];
+        NSIndexPath *path = [self.ProjectTable indexPathForSelectedRow];
+        ProjectModel *currPr = [projectData objectAtIndex:path.row];
+        detailcontroller.currentProject =currPr ;
+        
+        
+    }
+}
 #pragma mark-rightutility button
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     
@@ -345,27 +364,5 @@
     
     secondController.favouriteProjects = uniqueArray;
 }
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    NSLog(@"%@",segue.identifier);
-    if([segue.identifier isEqualToString:@"SearchSegue"])
-    {
-        SearchViewController *searchcontroller = [segue destinationViewController];
-        searchcontroller.currentSearchProjects = projectData;
-    }
-    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
-        
-        DetailViewController *detailcontroller = [segue destinationViewController];
-        NSIndexPath *path = [self.ProjectTable indexPathForSelectedRow];
-        ProjectModel *currPr = [projectData objectAtIndex:path.row];
-        detailcontroller.currentProject =currPr ;
-        
-        
-    }
-}
 @end
