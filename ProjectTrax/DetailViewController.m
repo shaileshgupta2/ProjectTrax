@@ -61,7 +61,7 @@
     
     ProjectTitleLabel.text =  [proj projName];
     NSMutableString *Date = [[NSMutableString alloc]initWithString:@"Last Updated  :  "];
-    [Date appendString:[proj updOn]];
+[Date appendString:[proj updOn]];
     LastUpdateLable.text = Date ;
     
     ProjectTextView.text = proj.desc;
@@ -128,15 +128,6 @@
     }*/
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     NSString *isFav = [proj isFav];
     //bool favoritebuttonstatus = false;
     
@@ -190,7 +181,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView.tag ==1 ) {
-        int n = 1;
+        int n = [highlights count];
+        
         int cellheight=0;
         NSString *str = [highlights objectAtIndex:indexPath.row];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         for (int i=0; i<n; i++) {
@@ -219,6 +211,14 @@
         NSString *risk = issData[@"risk"];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         NSArray *actions = issData[@"actions"];
         int n = [actions count];
+        
+        if([risk isEqualToString:@"N/A"])
+        {
+            cellheight = cellheight+[self TextlabelHight:risk]+20;
+        }
+        else
+        {
+        
         cellheight = cellheight+[self TextlabelHight:risk];
         cellheight = 10+20+5+cellheight +10+20;
         
@@ -227,6 +227,7 @@
             cellheight = cellheight+[self TextlabelHight:[actions objectAtIndex:i]];
         }
         cellheight = cellheight + (n-1)*8+20;
+        }
         return cellheight;
     }
     else
@@ -287,7 +288,16 @@
         int width=250;
         int lenght=20;
         
-        int n=1;
+        int n=[highlights count];
+        
+        if([[highlights objectAtIndex:0]isEqualToString:@"N/A"])
+        {
+             UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(x, y, width, lenght)];
+            lab.text =@"N/A";
+            [cell.contentView addSubview:lab];
+        }
+        else
+        {
         
         UILabel *count =[[UILabel alloc]initWithFrame:CGRectMake(20, 10, 10, 20)];
         [count setFont:[UIFont systemFontOfSize:12]];
@@ -315,6 +325,7 @@
             [cell.contentView addSubview:lab];
             
         }
+        }
         cell.contentView.layer.borderWidth = 1.0f;
         cell.contentView.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         
@@ -328,6 +339,19 @@
         int lenght=20;
         
         int n=1;
+        
+        if([[nextsteps objectAtIndex:0]isEqualToString:@"N/A"])
+        {
+            UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(x, y, width, lenght)];
+            lab.numberOfLines = 0;
+            lab.text =@"N/A" ;//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+            [lab setFont:[UIFont systemFontOfSize:12]];
+            [lab sizeToFit];
+            lab.backgroundColor =[UIColor clearColor];            
+            [cell.contentView addSubview:lab];
+        }
+        else
+        {
         
         UILabel *count =[[UILabel alloc]initWithFrame:CGRectMake(20, 10, 10, 20)];
         [count setFont:[UIFont systemFontOfSize:12]];
@@ -355,6 +379,7 @@
             [cell.contentView addSubview:lab];
             
         }
+        }
         cell.contentView.layer.borderWidth = 1.0f;
         cell.contentView.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;
@@ -364,14 +389,25 @@
     {
       
         
-       // int n=5;
-        
+       
         
 //      **** Risk Icon  ****
         NSDictionary *issData =  [issues_risks objectAtIndex:indexPath.row];
+        NSString *riskIndicator = issData[@"riskIndicator"];
+        NSString *risk = issData[@"risk"];
+        NSArray *actions = issData[@"actions"];
+        
+        if ([risk isEqualToString:@"N/A"]) {
+             UILabel *issueLabel =[[UILabel alloc]initWithFrame:CGRectMake(38, 10, 80, 20)];
+            issueLabel.text = @"N/A";
+            [issueLabel setFont:[UIFont boldSystemFontOfSize:14]];
+            [cell addSubview:issueLabel];
+        }
+        else
+        {
+        
         UIButton *count =[[UIButton alloc]initWithFrame:CGRectMake(10, 10, 20, 20)];
         
-         NSString *riskIndicator = issData[@"riskIndicator"];
         if([riskIndicator isEqual:@"High"])
         {
         [count setBackgroundImage:[UIImage imageNamed:@"high-level-issue.png"] forState:UIControlStateNormal];
@@ -397,7 +433,7 @@
         //NSString *risk = issData[@"risk"];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         
         
-        issueDetailLabel.text = issData[@"risk"];//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
+        issueDetailLabel.text = risk;//@"Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.";
         [issueDetailLabel setFont:[UIFont systemFontOfSize:12]];
         [issueDetailLabel sizeToFit];
         issueDetailLabel.backgroundColor =[UIColor clearColor];
@@ -416,7 +452,7 @@
         
         int hightforRisklabel = 10+20+5+issuselabelhight+10+20;
         
-        NSArray *actions = issData[@"actions"];
+       
        
         int n = [actions count];
         
@@ -439,6 +475,7 @@
             [cell.contentView addSubview:lab];
             
         }
+      }
         cell.contentView.layer.borderWidth = 1.0f;
         cell.contentView.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;

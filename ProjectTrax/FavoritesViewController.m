@@ -13,6 +13,7 @@
 #import "ProjectDataSource.h"
 #import "ProjViewController.h"
 #import "SearchViewController.h"
+#import "DetailViewController.h"
 @interface FavoritesViewController ()
 {
  NSMutableArray *favourites;
@@ -233,6 +234,15 @@
     {
         SearchViewController *searchcontroller = [segue destinationViewController];
         searchcontroller.currentSearchProjects = _favouriteProjects;
+    }
+    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
+        
+        DetailViewController *detailcontroller = [segue destinationViewController];
+        NSIndexPath *path = [self.favoritesTable indexPathForSelectedRow];
+        ProjectModel *currPr = [_favouriteProjects objectAtIndex:path.row];
+        detailcontroller.currentProject =currPr ;
+        
+        
     }
 }
 @end

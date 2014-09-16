@@ -9,7 +9,7 @@
 #import "SearchViewController.h"
 #import "ProjectCell.h"
 #import "ProjectModel.h"
-
+#import "DetailViewController.h"
 @interface SearchViewController ()
 {
     NSMutableArray *searchResults;
@@ -210,7 +210,7 @@
     [self performSegueWithIdentifier:@"DetailSegue1" sender:self];
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -218,8 +218,17 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"DetailSegue1"]) {
+        
+        DetailViewController *detailcontroller = [segue destinationViewController];
+        NSIndexPath *path = [self.searchTable indexPathForSelectedRow];
+        ProjectModel *currPr = [_currentSearchProjects objectAtIndex:path.row];
+        detailcontroller.currentProject =currPr ;
+        
+        
+    }
 }
-*/
+
 
 - (IBAction)sortByName:(id)sender {
     

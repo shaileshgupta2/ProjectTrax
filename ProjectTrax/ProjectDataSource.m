@@ -18,9 +18,8 @@
     NSString *urlStr =@"http://199.63.177.119:2222/ProjectDashBoard/service/get/ProjList/E873125/@nve$h454";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSData *Data =[NSData dataWithContentsOfURL:url];
-    NSLog(@"----");
     
-        NSError *error=nil;
+    NSError *error=nil;
         NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:Data options:NSJSONReadingMutableContainers error:&error];
         
         NSMutableArray *projectjsonData= jsonData[@"projects"];
@@ -42,7 +41,7 @@
             }
             
             NSString * projName = proj[@"fileRef"];
-            if ((projName ==nil) ||[projName isEqualToString:@""] ) //[ isEqualToString:nil] ||[ isEqualToString:@""]
+            if ((projName ==nil) ||[projName isEqualToString:@""] ) 
             {
                 projectData.projName =  @"N/A";
             }
@@ -145,7 +144,7 @@
                 projectData.subcategory =subcategory;
             }
             NSString* sponser=proj[@"sponsor"];
-            NSLog(@"sponser  :  %@",sponser);
+           // NSLog(@"sponser  :  %@",sponser);
             if ((sponser == nil) ||[sponser isEqualToString:@""])
             {
                 projectData.sponser = @"N/A";
@@ -181,34 +180,129 @@
             {
                 projectData.plnLeader = plnLeader;
             }
-            NSArray* highlights=proj[@"highlights"];
-            if ((highlights ==nil) ||([highlights count]==0))
+            
+       ///////////////////////////////////////////////////////////////////////////////////////
+            NSMutableArray* highlights=proj[@"highlights"];
+            NSLog(@"highlight size  : %d",[highlights count]);
+            NSMutableArray *nLights=[NSMutableArray new];
+            for(int i=0;i<[highlights count];i++)
             {
-               projectData.highlights = [[NSArray alloc]initWithObjects:@"N/A",nil];
+                if(([highlights objectAtIndex:i]==nil)||[[highlights objectAtIndex:i]isEqualToString:@""])
+                {}
+                else
+                {
+                    [nLights addObject:[highlights objectAtIndex:i]];
+                }
+            }
+            NSLog(@"nlights size : %d",[nLights count]);
+            if ([nLights count]==0)
+            {
+                NSMutableArray *nL = [[NSMutableArray alloc]init];
+                [nL addObject:@"N/A"];
+               projectData.highlights = nL;
             }
             else
             {
-                projectData.highlights = highlights;
-            }
-            NSArray* nextsteps=proj[@"nextsteps"];
-            if ((nextsteps==nil) ||([nextsteps count]==0))
-            {
-               projectData.nextsteps = [[NSArray alloc]initWithObjects:@"N/A",nil];
-            }
-            else
-            {
-                projectData.nextsteps = nextsteps;
-            }
-            NSArray* issues_risks=proj[@"issues_risks"];
-            if ((issues_risks ==nil) ||([issues_risks count]==0))
-            {
-               projectData.issues_risks = [[NSArray alloc]initWithObjects:@"N/A",nil];
-            }
-            else
-            {
-                projectData.issues_risks=issues_risks;
+                projectData.highlights = nLights;
             }
             
+        ///////////////////////////////////////////////////////////////////////////////////////
+            
+            NSArray* nextsteps=proj[@"nextsteps"];
+            NSLog(@"next step   :  %d",[nextsteps count]);
+            NSMutableArray* nStep=[[NSMutableArray alloc]init];
+            for (int i =0; i<[nextsteps count]; i++) {
+                if (([nextsteps objectAtIndex:i] == nil)||([[nextsteps objectAtIndex:i] isEqualToString:@""]))
+                {
+                    
+                }
+                else
+                {   NSLog(@"   %@  next step data  :  %@",projectData.projName ,[nextsteps objectAtIndex:i]);
+                    [nStep addObject:[nextsteps objectAtIndex:i]];
+                }
+            }
+            NSLog(@"nstep count :  %d",[nStep count]);
+            if ([nStep count]==0)
+            {
+                
+                NSMutableArray *nS = [[NSMutableArray alloc]init];
+                [nS addObject:@"N/A"];
+                projectData.nextsteps = nS;
+            }
+            else
+            {
+                projectData.nextsteps = nStep;
+            
+            }
+          
+       ///////////////////////////////////////////////////////////////////////////////////////
+          
+            NSArray* issues_risks=proj[@"issues_risks"];
+            NSLog(@"issue_count : %d",[issues_risks count]);
+            
+            NSMutableArray *nissue = [NSMutableArray new];
+            
+            
+            for (int i=0; i<[issues_risks count]; i++)
+            {
+                NSDictionary *issData =  [issues_risks objectAtIndex:i];
+                NSString *risk =issData[@"risk"];
+                NSString *riskIndicator = issData[@"riskIndicator"];
+                NSArray *actions = issData[@"actions"];
+                
+                if ((risk == nil) || [risk isEqualToString:@""] )
+                {
+                    NSMutableDictionary *nDict = [[NSMutableDictionary alloc]init];
+                    [nDict setObject:@"N/A" forKey:@"risk"];
+                    [nDict setObject:@"N/A" forKey:@"riskIndicator"];
+                     NSMutableArray *act = [[NSMutableArray alloc]init];
+                    [act addObject:@"N/A"];
+                    [nDict setObject:act forKey:@"actions"];
+                    [nissue addObject:nDict];
+                    goto OUT;
+                }
+                else
+                {
+                    if([actions count]==0)
+                    {
+                        NSMutableDictionary *nDict = [[NSMutableDictionary alloc]init];
+                        [nDict setObject:risk forKey:@"risk"];
+                        [nDict setObject:riskIndicator forKey:@"riskIndicator"];
+                        NSMutableArray *act = [[NSMutableArray alloc]init];
+                        [act addObject:@"N/A"];
+                        [nDict setObject:act forKey:@"actions"];
+                        [nissue addObject:nDict];
+                    }
+                    else
+                    {
+                        NSMutableDictionary *nDict = [[NSMutableDictionary alloc]init];
+                        [nDict setObject:risk forKey:@"risk"];
+                        [nDict setObject:riskIndicator forKey:@"riskIndicator"];
+                        NSMutableArray *act = [[NSMutableArray alloc]init];
+                        for (int j=0; j<[actions count]; j++)
+                            {
+                                if(([actions objectAtIndex:j]==nil)&&([[actions objectAtIndex:j]isEqualToString:@""]))
+                                {
+                                    [act addObject:@"N/A"];
+                                }
+                                else
+                                {
+                                    [act addObject:[actions objectAtIndex:j]];
+                    
+                                }
+                            }
+                            [nDict setObject:act forKey:@"actions"];
+                            [nissue addObject:nDict];
+                     }
+                }
+                
+                
+            }
+            OUT :
+            
+                projectData.issues_risks=nissue;
+            
+         ///////////////////////////////////////////////////////////////////////////////////////
             [projectDataArray addObject:projectData];
            
         }
