@@ -57,7 +57,15 @@
     
     isSorted=TRUE;
     
-    _favourites = [[NSMutableArray alloc] initWithObjects:nil];
+    _favourites = [[NSMutableArray alloc] init];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *location = [libraryDirectory stringByAppendingString:@"/favourites.plist"];
+
+  NSString   *path = [[NSBundle mainBundle] pathForResource:@"favourites" ofType:@"plist"];
+    NSArray *check1 = [[NSArray alloc]init];
+    _favourites = [NSMutableArray arrayWithContentsOfFile:location];
+   
     
     ProjectDataSource *projectsource =[[ProjectDataSource alloc]init];
     projectData = [projectsource getAllProjects];
@@ -362,6 +370,14 @@
     // [favcontroller setFavPrjSource:self ];
     [uniqueArray addObjectsFromArray:[[NSSet setWithArray:favouriteProjects] allObjects]];
     
+    
+    
+   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+    NSString *location = [libraryDirectory stringByAppendingString:@"/favourites.plist"];
+    
+  //  NSArray *check = [[NSArray alloc] initWithObjects:@"a",@"b",@"c", nil];
+    [_favourites writeToFile:location atomically:YES];
     secondController.favouriteProjects = uniqueArray;
 }
 
