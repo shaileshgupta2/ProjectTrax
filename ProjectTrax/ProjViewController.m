@@ -58,13 +58,16 @@
     isSorted=TRUE;
     
     _favourites = [[NSMutableArray alloc] init];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+   /* NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *libraryDirectory = [paths objectAtIndex:0];
     NSString *location = [libraryDirectory stringByAppendingString:@"/favourites.plist"];
 
   NSString   *path = [[NSBundle mainBundle] pathForResource:@"favourites" ofType:@"plist"];
-    NSArray *check1 = [[NSArray alloc]init];
-    _favourites = [NSMutableArray arrayWithContentsOfFile:location];
+    _favourites = [NSMutableArray arrayWithContentsOfFile:location];*/
+    
+    [self readPlist:@"favourite"];
+    
+    _favourites = [self readPlist:@"favourite"];
    
     
     ProjectDataSource *projectsource =[[ProjectDataSource alloc]init];
@@ -371,14 +374,46 @@
     [uniqueArray addObjectsFromArray:[[NSSet setWithArray:favouriteProjects] allObjects]];
     
     
-    
-   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    [self writePlist:_favourites fileName:@"favourite"];
+  /* NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *libraryDirectory = [paths objectAtIndex:0];
     NSString *location = [libraryDirectory stringByAppendingString:@"/favourites.plist"];
     
   //  NSArray *check = [[NSArray alloc] initWithObjects:@"a",@"b",@"c", nil];
-    [_favourites writeToFile:location atomically:YES];
+    [_favourites writeToFile:location atomically:YES];*/
     secondController.favouriteProjects = uniqueArray;
 }
+
+- (void)writePlist:(id)plist fileName:(NSString *)fileName {
+    NSData *xmlData;
+    NSString *error;
+    
+    NSString *localizedPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+    xmlData = [NSPropertyListSerialization dataFromPropertyList:plist format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    if (xmlData) {
+        [xmlData writeToFile:localizedPath atomically:YES];
+    } else {
+        NSLog(@"Error writing plist to file '%s', error = '%s'", [localizedPath UTF8String], [error UTF8String]);
+    }
+}
+- (NSMutableArray *)readPlist:(NSString *)fileName {
+    NSData *plistData;
+    NSString *error;
+    NSPropertyListFormat format;
+    id plist;
+    
+    NSString *localizedPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"];
+    
+_favourites = [NSMutableArray arrayWithContentsOfFile:localizedPath];
+  //  plistData = [NSData dataWithContentsOfFile:localizedPath];
+    
+  //  plist = [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error];
+    if (!plist) {
+        NSLog(@"Error reading plist from file '%s', error = '%s'", [localizedPath UTF8String], [error UTF8String]);
+    }
+    
+    return _favourites;
+}
+
 
 @end

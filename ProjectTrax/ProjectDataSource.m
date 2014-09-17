@@ -15,7 +15,7 @@
 
 -(NSMutableArray *)getAllProjects
 {
-    NSString *urlStr =@"http://199.63.177.119:3333/ProjectDashBoard/service/get/ProjList/E873125/@nve$h454";
+    NSString *urlStr =@"http://10.78.5.90:9090/ProjectDashBoard/service/get/ProjList/E873125/@nve$h454";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSData *Data =[NSData dataWithContentsOfURL:url];
     

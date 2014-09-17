@@ -846,8 +846,12 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="UpdatedOn" destination="Wph-Ae-0f4" id="b84-8W-oNs"/>
+                                            <outlet property="cost_past" destination="h2g-su-hWy" id="m8f-Pn-ff2"/>
                                             <outlet property="cost_this" destination="VfF-1G-5SU" id="liS-jf-olj"/>
                                             <outlet property="nameField" destination="Beu-dt-Wuu" id="Lxc-4p-Fbh"/>
+                                            <outlet property="risk_this" destination="h2g-su-hWy" id="4Zn-mT-7kO"/>
+                                            <outlet property="schedule_this" destination="qH9-vX-e44" id="2Ze-Rr-ccV"/>
+                                            <outlet property="scoper_this" destination="FzW-Xt-F2L" id="7TQ-MZ-C7M"/>
                                             <segue destination="8Om-bB-liV" kind="push" identifier="DetailSegue" id="2Gu-va-fEH"/>
                                         </connections>
                                     </tableViewCell>

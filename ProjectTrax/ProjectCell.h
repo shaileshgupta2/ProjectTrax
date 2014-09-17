@@ -13,10 +13,12 @@
 {
     
 }
+@property (weak, nonatomic) IBOutlet UIImageView *schedule_this;
+@property (weak, nonatomic) IBOutlet UIImageView *scoper_this;
 @property (weak, nonatomic) IBOutlet UIImageView *is_favourite;
 @property (weak, nonatomic) IBOutlet UILabel *nameField;
 
 @property (weak, nonatomic) IBOutlet UILabel *UpdatedOn;
 @property (weak, nonatomic) IBOutlet UIImageView *cost_this;
-@property (weak, nonatomic) IBOutlet UIImageView *cost_past;
+@property (weak, nonatomic) IBOutlet UIImageView *risk_this;
 @end
