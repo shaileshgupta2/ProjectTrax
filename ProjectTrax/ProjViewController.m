@@ -67,7 +67,7 @@
     
     [self readPlist:@"favourite"];
     
-    _favourites = [self readPlist:@"favourite"];
+  //  _favourites = [self readPlist:@"favourite"];
    
     
     ProjectDataSource *projectsource =[[ProjectDataSource alloc]init];

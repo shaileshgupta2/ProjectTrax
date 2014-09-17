@@ -161,7 +161,7 @@
     
     cell.textLabel.text = projinfo.projName;
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:14];
-    cell.cost_past.image = [UIImage imageNamed:@"Arrow-Green-40x40.png"];
+ //   cell.cost_past.image = [UIImage imageNamed:@"Arrow-Green-40x40.png"];
 
     return cell;
     

@@ -17,7 +17,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _cost_this = [[UIImageView alloc] initWithFrame:(CGRectMake(0, 0, 99, 79))];
-        _cost_past = [[UIImageView alloc] initWithFrame:(CGRectMake(0, 0, 99, 79))];
+        _risk_this = [[UIImageView alloc] initWithFrame:(CGRectMake(0, 0, 99, 79))];
 
         _nameField = [[UILabel alloc] initWithFrame:(CGRectMake(107, 8, 173, 42))];
         _nameField.font = [UIFont systemFontOfSize:17];
@@ -28,7 +28,7 @@
         _UpdatedOn.textAlignment = NSTextAlignmentCenter;
         
         [self.contentView addSubview:_cost_this];
-        [self.contentView addSubview:_cost_past];
+        [self.contentView addSubview:_risk_this];
 
         [self.contentView addSubview:_nameField];
         [self.contentView addSubview:_UpdatedOn];
