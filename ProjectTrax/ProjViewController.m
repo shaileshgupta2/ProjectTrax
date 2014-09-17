@@ -324,7 +324,7 @@
         NSString *str = [projectinfo projName];
         NSLog(@"%@ %d",str, i);
         
-        if([_favourites containsObject:[projectinfo projno]])
+        if([_favourites containsObject:[projectinfo projName]])
         {
             if(!([favouriteProjects containsObject:projectinfo]))
             {
@@ -354,7 +354,7 @@
 
 -(void) set_favourites : (ProjectModel*) projectinfo
 {
-    [_favourites addObject:projectinfo.projno];
+    [_favourites addObject:projectinfo.projName];
     [self set_favouritesToProject];
     [_ProjectTable reloadData];
 }
